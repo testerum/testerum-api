@@ -18,6 +18,14 @@
     </modules>
 
 
+    <scm>
+        <connection>https://gitlab.com/testerum/testerum-api.git</connection>
+        <developerConnection>scm:git:git@gitlab.com:testerum/testerum-api.git</developerConnection>
+        <url>https://gitlab.com/testerum/testerum-api</url>
+        <tag>HEAD</tag>
+    </scm>
+
+
     <properties>
         <!-- maven settings -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
