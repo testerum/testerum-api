@@ -7,7 +7,6 @@
     <artifactId>testerum-api</artifactId>
     <version>develop-SNAPSHOT</version>
 
-
     <packaging>pom</packaging>
 
 
@@ -16,8 +15,36 @@
     </modules>
 
 
+    <name>${project.artifactId}</name>
+    <description>Public API used to extend the Testerum test automation platform.</description>
+    <url>https://testerum.com/</url>
+
+    <licenses>
+        <license>
+            <name>The Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Vasile-Cristian Mocanu</name>
+            <email>cristian.mocanu@testerum.com</email>
+            <organization>Testerum</organization>
+            <organizationUrl>https://testerum.com/</organizationUrl>
+        </developer>
+
+        <developer>
+            <name>Ionut Pruteanu</name>
+            <email>ionut.pruteanu@testerum.com</email>
+            <organization>Testerum</organization>
+            <organizationUrl>https://testerum.com/</organizationUrl>
+        </developer>
+    </developers>
+
+
     <scm>
-        <connection>https://gitlab.com/testerum/testerum-api.git</connection>
+        <connection>scm:git:https://gitlab.com/testerum/testerum-api.git</connection>
         <developerConnection>scm:git:git@gitlab.com:testerum/testerum-api.git</developerConnection>
         <url>https://gitlab.com/testerum/testerum-api</url>
         <tag>HEAD</tag>
