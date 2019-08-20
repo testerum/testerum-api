@@ -406,7 +406,6 @@
                     <configuration>
                         <keyname>contact+maven-deployer@testerum.com</keyname>
                         <useAgent>true</useAgent>
-                        <interactive>false</interactive>
                         <gpgArguments>
                             <arg>--pinentry-mode</arg>
                             <arg>loopback</arg>
