@@ -380,6 +380,27 @@
                         </perPackageOptions>
                     </configuration>
                 </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-gpg-plugin</artifactId>
+                    <version>1.6</version>
+
+                    <executions>
+                        <execution>
+                            <id>sign-artifacts</id>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>sign</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+
+                    <configuration>
+                        <keyname>contact+maven-deployer@testerum.com</keyname>
+                        <useAgent>true</useAgent>
+                    </configuration>
+                </plugin>
             </plugins>
         </pluginManagement>
 
