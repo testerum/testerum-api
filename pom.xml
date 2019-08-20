@@ -396,7 +396,7 @@
                     <executions>
                         <execution>
                             <id>sign-artifacts</id>
-                            <phase>package</phase>
+                            <phase>verify</phase>
                             <goals>
                                 <goal>sign</goal>
                             </goals>
@@ -405,12 +405,6 @@
 
                     <configuration>
                         <keyname>contact+maven-deployer@testerum.com</keyname>
-                        <useAgent>true</useAgent>
-                        <gpgArguments>
-                            <arg>--verbose</arg>
-                            <arg>--pinentry-mode</arg>
-                            <arg>loopback</arg>
-                        </gpgArguments>
                     </configuration>
                 </plugin>
 
