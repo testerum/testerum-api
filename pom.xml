@@ -405,7 +405,8 @@
 
                     <configuration>
                         <keyname>contact+maven-deployer@testerum.com</keyname>
-                        <useAgent>false</useAgent>
+                        <useAgent>true</useAgent>
+                        <interactive>false</interactive>
                     </configuration>
                 </plugin>
 
