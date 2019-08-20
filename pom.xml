@@ -407,6 +407,7 @@
                         <keyname>contact+maven-deployer@testerum.com</keyname>
                         <useAgent>true</useAgent>
                         <gpgArguments>
+                            <arg>--verbose</arg>
                             <arg>--pinentry-mode</arg>
                             <arg>loopback</arg>
                         </gpgArguments>
