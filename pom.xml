@@ -442,6 +442,12 @@
                 <artifactId>maven-enforcer-plugin</artifactId>
             </plugin>
 
+            <!-- maven-gpg-plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+            </plugin>
+
             <!-- nexus-staging-maven-plugin -->
             <plugin>
                 <groupId>org.sonatype.plugins</groupId>
