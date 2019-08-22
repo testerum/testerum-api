@@ -359,7 +359,7 @@
                     <configuration>
                         <tagNameFormat>release-tags/@{project.version}</tagNameFormat>
                         <arguments>-Dproduction</arguments>
-                        <goals>install</goals>
+                        <goals>deploy</goals>
                     </configuration>
                 </plugin>
 
@@ -442,29 +442,10 @@
                 <artifactId>maven-enforcer-plugin</artifactId>
             </plugin>
 
-            <!-- maven-deploy-plugin -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-deploy-plugin</artifactId>
-                <configuration>
-                    <skip>true</skip>
-                </configuration>
-            </plugin>
-
             <!-- nexus-staging-maven-plugin -->
             <plugin>
                 <groupId>org.sonatype.plugins</groupId>
                 <artifactId>nexus-staging-maven-plugin</artifactId>
-
-                <executions>
-                    <execution>
-                        <id>default-deploy</id>
-                        <phase>deploy</phase>
-                        <goals>
-                            <goal>deploy</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
 
         </plugins>
