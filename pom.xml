@@ -405,13 +405,8 @@
 
                     <configuration>
                         <keyname>contact+maven-deployer@testerum.com</keyname>
-                        <gpgArguments>
-                            <arg>--pinentry-mode</arg>
-                            <arg>loopback</arg>
-                            <arg>--verbose</arg>
-                        </gpgArguments>
                         <passphrase>${gpg.passphrase}</passphrase>
-                        <interactive>true</interactive>
+                        <interactive>false</interactive>
                     </configuration>
                 </plugin>
 
