@@ -409,6 +409,7 @@
                             <arg>--pinentry-mode</arg>
                             <arg>loopback</arg>
                         </gpgArguments>
+                        <useAgent>false</useAgent>
                     </configuration>
                 </plugin>
 
