@@ -411,6 +411,7 @@
                             <arg>--verbose</arg>
                         </gpgArguments>
                         <passphrase>${gpg.passphrase}</passphrase>
+                        <interactive>false</interactive>
                     </configuration>
                 </plugin>
 
