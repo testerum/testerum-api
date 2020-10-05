@@ -44,9 +44,9 @@
 
 
     <scm>
-        <connection>scm:git:https://gitlab.com/testerum/testerum-api.git</connection>
-        <developerConnection>scm:git:git@gitlab.com:testerum/testerum-api.git</developerConnection>
-        <url>https://gitlab.com/testerum/testerum-api</url>
+        <connection>scm:git:https://github.com/testerum/testerum-api.git</connection>
+        <developerConnection>scm:git:git@github.com:testerum/testerum-api.git</developerConnection>
+        <url>https://github.com/testerum/testerum-api</url>
         <tag>HEAD</tag>
     </scm>
 
