@@ -5,6 +5,7 @@ enum class SettingType {
     BOOLEAN,
     NUMBER,
     TEXT,
+    JAVASCRIPT,
     ENUM,
     FILESYSTEM_DIRECTORY,
     SELENIUM_DRIVER
