@@ -21,6 +21,8 @@ annotation class DeclareSetting(
 
         val description: String = "",
 
-        val category: String = ""
+        val category: String = "",
+
+        val uiHints: Array<String> = []
 
 )
