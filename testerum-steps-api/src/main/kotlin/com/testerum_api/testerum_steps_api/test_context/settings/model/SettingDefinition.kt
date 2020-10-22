@@ -7,7 +7,8 @@ data class SettingDefinition(val key: String,
                              val enumValues: List<String> = emptyList(),
                              val description: String? = null,
                              val category: String? = null,
-                             val defined: Boolean = true) {
+                             val defined: Boolean = true,
+                             val uiHints: List<String> = emptyList()) {
     companion object {
         fun undefined(key: String) = SettingDefinition(
                 key = key,
@@ -16,7 +17,8 @@ data class SettingDefinition(val key: String,
                 defaultValue = "",
                 description = null,
                 category = null,
-                defined = false
+                defined = false,
+                uiHints = emptyList()
         )
     }
 
