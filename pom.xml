@@ -358,7 +358,6 @@
 
                     <configuration>
                         <tagNameFormat>release-tags/@{project.version}</tagNameFormat>
-                        <arguments>-Dproduction</arguments>
                         <goals>deploy</goals>
                     </configuration>
                 </plugin>
