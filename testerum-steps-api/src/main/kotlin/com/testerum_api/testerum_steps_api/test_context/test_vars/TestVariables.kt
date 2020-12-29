@@ -4,14 +4,6 @@ import com.testerum_api.testerum_steps_api.services.TesterumService
 
 interface TestVariables : TesterumService {
 
-    fun getArgsVars(): Map<String, Any?>
-
-    fun getDynamicVars(): Map<String, Any?>
-
-    fun getGlobalVars(): Map<String, Any?>
-
-    fun toMap(): Map<String, Any?>
-
     fun contains(name: String): Boolean
 
     /**
@@ -28,4 +20,7 @@ interface TestVariables : TesterumService {
     operator fun set(name: String, value: Any?): Any?
 
     fun resolveIn(text: String): String
+
+    fun getVariablesDetailsForDebugging(): String
+
 }
