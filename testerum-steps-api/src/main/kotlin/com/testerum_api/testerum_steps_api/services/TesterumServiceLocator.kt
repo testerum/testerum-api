@@ -2,6 +2,7 @@ package com.testerum_api.testerum_steps_api.services
 
 import com.testerum_api.testerum_steps_api.test_context.TestContext
 import com.testerum_api.testerum_steps_api.test_context.logger.TesterumLogger
+import com.testerum_api.testerum_steps_api.test_context.script_executer.ScriptExecuter
 import com.testerum_api.testerum_steps_api.test_context.settings.RunnerSettingsManager
 import com.testerum_api.testerum_steps_api.test_context.settings.RunnerTesterumDirs
 import com.testerum_api.testerum_steps_api.test_context.test_vars.TestVariables
@@ -27,10 +28,13 @@ object TesterumServiceLocator {
     fun getTesterumLogger(): TesterumLogger = getService(TesterumLogger::class.java)
 
     @JvmStatic
+    fun getScriptExecuter(): ScriptExecuter = getService(ScriptExecuter::class.java)
+
+    @JvmStatic
     @Suppress("UNCHECKED_CAST")
     fun <S : TesterumService> getService(serviceClass: Class<S>): S {
         return services[serviceClass] as? S
-                ?: throw serviceNotFoundException(serviceClass)
+            ?: throw serviceNotFoundException(serviceClass)
     }
 
     @JvmStatic
@@ -39,7 +43,7 @@ object TesterumServiceLocator {
         services[serviceClass] = service
     }
 
-    private fun serviceNotFoundException(serviceClass: Class<*>)
-            = TesterumServiceNotFoundException("${serviceClass.simpleName} has not yet been registered with the ${TesterumServiceLocator.javaClass.simpleName}")
+    private fun serviceNotFoundException(serviceClass: Class<*>) =
+        TesterumServiceNotFoundException("${serviceClass.simpleName} has not yet been registered with the ${TesterumServiceLocator.javaClass.simpleName}")
 
 }
