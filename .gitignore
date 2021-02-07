@@ -11,15 +11,9 @@ atlassian-ide-plugin.xml
 .settings
 .springBeans
 
-# exclude maven target directories everywhere
-target/
-
-# maven release plugin
-pom.xml.releaseBackup
-pom.xml.versionsBackup
-pom.xml.next
-pom.xml.tag
-/release.properties
+# Gradle
+.gradle/
+build/
 
 # Mac
 .DS_Store
