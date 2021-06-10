@@ -31,30 +31,14 @@ To debug in IntelliJ Idea, open the 'Maven Projects' tool window (View
 version = "2021.1"
 
 project {
-
     vcsRoot(TesterumApi_HttpsGithubComTesterumTesterumApi)
 
-    buildType(TesterumApi_Master)
-    buildType(TesterumApi_Gradle)
+    buildType(TesterumApiMaster)
+    buildType(TesterumApiGradle)
 }
 
-object TesterumApi_Gradle : BuildType({
-    id("Gradle")
-    name = "gradle"
-
-    vcs {
-        root(DslContext.settingsRoot)
-    }
-
-    steps {
-        gradle {
-            tasks = "build"
-        }
-    }
-})
-
-object TesterumApi_Master : BuildType({
-    id("Master")
+object TesterumApiMaster : BuildType({
+    id("master")
     name = "master"
 
     vcs {
@@ -65,6 +49,21 @@ object TesterumApi_Master : BuildType({
         maven {
             name = "maven"
             goals = "clean package"
+        }
+    }
+})
+
+object TesterumApiGradle : BuildType({
+    id("gradle")
+    name = "gradle"
+
+    vcs {
+        root(DslContext.settingsRoot)
+    }
+
+    steps {
+        gradle {
+            tasks = "build"
         }
     }
 })
