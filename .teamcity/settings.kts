@@ -33,7 +33,7 @@ version = "2021.1"
 project {
     vcsRoot(TesterumApi_HttpsGithubComTesterumTesterumApi)
 
-//    buildType(TesterumApiMaster)
+    buildType(TesterumApiMaster)
     buildType(TesterumApiGradle)
 }
 
