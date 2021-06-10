@@ -80,13 +80,13 @@ open class TesterumApiBranchVcsRoot(init: GitVcsRoot.() -> Unit) : GitVcsRoot({
 })
 
 object MasterBranchVcsRoot : TesterumApiBranchVcsRoot({
-    id("TesterumApi_HttpsGithubComTesterumTesterumApi")
+    id("MasterBranchVcsRoot")
     name = "testerum-api (master branch)"
     branch = "refs/heads/master"
 })
 
 object GradleBranchVcsRoot : TesterumApiBranchVcsRoot({
-    id("TesterumApi_HttpsGithubComTesterumTesterumApi")
+    id("GradleBranchVcsRoot")
     name = "testerum-api (gradle branch)"
     branch = "refs/heads/gradle"
 })
