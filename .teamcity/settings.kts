@@ -1,7 +1,9 @@
 import jetbrains.buildServer.configs.kotlin.v2019_2.BuildType
+import jetbrains.buildServer.configs.kotlin.v2019_2.DslContext
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.gradle
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.maven
 import jetbrains.buildServer.configs.kotlin.v2019_2.project
+import jetbrains.buildServer.configs.kotlin.v2019_2.projectFeatures.githubConnection
 import jetbrains.buildServer.configs.kotlin.v2019_2.vcs.GitVcsRoot
 import jetbrains.buildServer.configs.kotlin.v2019_2.version
 
@@ -35,6 +37,14 @@ project {
 
     buildType(TesterumApiMaster)
     buildType(TesterumApiGradle)
+
+    features {
+        githubConnection {
+            displayName  = "GitHub connection"
+            clientId     = DslContext.getParameter("TEAMCITY_GITHUB_CLIENT_ID")
+            clientSecret = DslContext.getParameter("TEAMCITY_GITHUB_CLIENT_SECRET")
+        }
+    }
 }
 
 object TesterumApiMaster : BuildType({
@@ -69,16 +79,6 @@ object TesterumApiGradle : BuildType({
     }
 })
 
-open class TesterumApiBranchVcsRoot(init: GitVcsRoot.() -> Unit) : GitVcsRoot({
-    url = "git@github.com:testerum/testerum-api.git"
-
-    authMethod = uploadedKey {
-        this.uploadedKey = "teamcity@github-testerum-api"
-    }
-
-    this.init()
-})
-
 object MasterBranchVcsRoot : TesterumApiBranchVcsRoot({
     id("MasterBranchVcsRoot")
     name = "testerum-api (master branch)"
@@ -89,4 +89,14 @@ object GradleBranchVcsRoot : TesterumApiBranchVcsRoot({
     id("GradleBranchVcsRoot")
     name = "testerum-api (gradle branch)"
     branch = "refs/heads/gradle"
+})
+
+open class TesterumApiBranchVcsRoot(init: GitVcsRoot.() -> Unit) : GitVcsRoot({
+    url = "git@github.com:testerum/testerum-api.git"
+
+    authMethod = uploadedKey {
+        this.uploadedKey = "teamcity@github-testerum-api"
+    }
+
+    this.init()
 })
