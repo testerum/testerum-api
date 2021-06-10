@@ -32,10 +32,8 @@ object TesterumServiceLocator {
 
     @JvmStatic
     @Suppress("UNCHECKED_CAST")
-    fun <S : TesterumService> getService(serviceClass: Class<S>): S {
-        return services[serviceClass] as? S
-            ?: throw serviceNotFoundException(serviceClass)
-    }
+    fun <S : TesterumService> getService(serviceClass: Class<S>): S = services[serviceClass] as? S
+        ?: throw serviceNotFoundException(serviceClass)
 
     @JvmStatic
     @Deprecated(message = "this method is internal to the Runner and should not be used by step libraries")
