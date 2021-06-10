@@ -1,5 +1,4 @@
 import jetbrains.buildServer.configs.kotlin.v2019_2.BuildType
-import jetbrains.buildServer.configs.kotlin.v2019_2.DslContext
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.gradle
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.maven
 import jetbrains.buildServer.configs.kotlin.v2019_2.project
@@ -31,7 +30,7 @@ To debug in IntelliJ Idea, open the 'Maven Projects' tool window (View
 version = "2021.1"
 
 project {
-    vcsRoot(TesterumApi_HttpsGithubComTesterumTesterumApi)
+    vcsRoot(GradleBranchVcsRoot)
 
     buildType(TesterumApiMaster)
     buildType(TesterumApiGradle)
@@ -42,7 +41,7 @@ object TesterumApiMaster : BuildType({
     name = "master"
 
     vcs {
-        root(TesterumApi_HttpsGithubComTesterumTesterumApi)
+        root(MasterBranchVcsRoot)
     }
 
     steps {
@@ -58,19 +57,27 @@ object TesterumApiGradle : BuildType({
     name = "gradle"
 
     vcs {
-        root(DslContext.settingsRoot)
+        root(GradleBranchVcsRoot)
     }
 
     steps {
         gradle {
             tasks = "build"
+            enableStacktrace = true
         }
     }
 })
 
-object TesterumApi_HttpsGithubComTesterumTesterumApi : GitVcsRoot({
-    id("HttpsGithubComTesterumTesterumApi")
-    name = "https://github.com/testerum/testerum-api (master branch)"
+object MasterBranchVcsRoot : GitVcsRoot({
+    id("GradleBranchVcsRoot")
+    name = "testerum-api (master branch)"
     url = "https://github.com/testerum/testerum-api"
     branch = "refs/heads/master"
+})
+
+object GradleBranchVcsRoot : GitVcsRoot({
+    id("HttpsGithubComTesterumTesterumApi")
+    name = "testerum-api (gradle branch)"
+    url = "https://github.com/testerum/testerum-api"
+    branch = "refs/heads/gradle"
 })
