@@ -68,16 +68,24 @@ object TesterumApiGradle : BuildType({
     }
 })
 
-object MasterBranchVcsRoot : GitVcsRoot({
+open class TesterumApiBranchVcsRoot(init: GitVcsRoot.() -> Unit) : GitVcsRoot({
+    url = "git@github.com:testerum/testerum-api.git"
+
+    authMethod = uploadedKey {
+        this.uploadedKey = "teamcity@github-testerum-api"
+    }
+
+    this.init()
+})
+
+object MasterBranchVcsRoot : TesterumApiBranchVcsRoot({
     id("TesterumApi_HttpsGithubComTesterumTesterumApi")
     name = "testerum-api (master branch)"
-    url = "git@github.com:testerum/testerum-api.git"
     branch = "refs/heads/master"
 })
 
-object GradleBranchVcsRoot : GitVcsRoot({
+object GradleBranchVcsRoot : TesterumApiBranchVcsRoot({
     id("TesterumApi_HttpsGithubComTesterumTesterumApi")
     name = "testerum-api (gradle branch)"
-    url = "git@github.com:testerum/testerum-api.git"
     branch = "refs/heads/gradle"
 })
