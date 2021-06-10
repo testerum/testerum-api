@@ -4,7 +4,7 @@ import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.gradle
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.maven
 import jetbrains.buildServer.configs.kotlin.v2019_2.project
 import jetbrains.buildServer.configs.kotlin.v2019_2.projectFeatures.githubConnection
-import jetbrains.buildServer.configs.kotlin.v2019_2.triggers.vcs
+import jetbrains.buildServer.configs.kotlin.v2019_2.triggers.VcsTrigger
 import jetbrains.buildServer.configs.kotlin.v2019_2.vcs.GitVcsRoot
 import jetbrains.buildServer.configs.kotlin.v2019_2.version
 
@@ -64,7 +64,7 @@ object TesterumApiMaster : BuildType({
     }
 
     triggers {
-        vcs {  }
+        trigger(TesterumApiVcsTrigger)
     }
 })
 
@@ -84,7 +84,7 @@ object TesterumApiGradle : BuildType({
     }
 
     triggers {
-        vcs {  }
+        trigger(TesterumApiVcsTrigger)
     }
 })
 
@@ -109,3 +109,5 @@ open class TesterumApiBranchVcsRoot(init: GitVcsRoot.() -> Unit) : GitVcsRoot({
 
     this.init()
 })
+
+object TesterumApiVcsTrigger : VcsTrigger({})
