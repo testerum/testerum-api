@@ -69,15 +69,15 @@ object TesterumApiGradle : BuildType({
 })
 
 object MasterBranchVcsRoot : GitVcsRoot({
-    id("GradleBranchVcsRoot")
+    id("MasterBranchVcsRoot")
     name = "testerum-api (master branch)"
-    url = "https://github.com/testerum/testerum-api"
+    url = "git@github.com:testerum/testerum-api.git"
     branch = "refs/heads/master"
 })
 
 object GradleBranchVcsRoot : GitVcsRoot({
-    id("HttpsGithubComTesterumTesterumApi")
+    id("GradleBranchVcsRoot")
     name = "testerum-api (gradle branch)"
-    url = "https://github.com/testerum/testerum-api"
+    url = "git@github.com:testerum/testerum-api.git"
     branch = "refs/heads/gradle"
 })
