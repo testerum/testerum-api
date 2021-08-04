@@ -10,6 +10,6 @@ annotation class BeforeAllTests(
         val description: String = ANNOTATION_NULL,
 
         /** order of hook execution; hooks with higher order are run after hooks with lower order */
-        val order: Int = com.testerum_api.testerum_steps_api.annotations.hooks.HooksConstants.DEFAULT_ORDER
+        val order: Int = HooksConstants.DEFAULT_ORDER
 
 )
