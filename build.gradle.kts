@@ -10,16 +10,11 @@ allprojects {
 nexusPublishing {
     repositories {
         sonatype {
-            val sonatypeNexusUsername: String = getRequiredEnv("SONATYPE_NEXUS_USERNAME")
-            val sonatypeNexusPassword: String = getRequiredEnv("SONATYPE_NEXUS_PASSWORD")
+            val sonatypeNexusUsername: String? = System.getenv("SONATYPE_NEXUS_USERNAME")
+            val sonatypeNexusPassword: String? = System.getenv("SONATYPE_NEXUS_PASSWORD")
 
             username.set(sonatypeNexusUsername)
             password.set(sonatypeNexusPassword)
         }
     }
-}
-
-fun getRequiredEnv(key: String): String {
-    return System.getenv(key)
-        ?: throw RuntimeException("missing required environment variable [$key]")
 }
