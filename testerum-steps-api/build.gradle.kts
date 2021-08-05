@@ -94,8 +94,8 @@ if (isRelease) {
     }
 
     signing {
-        val signingKey: String by project.rootProject
-        val signingPassword: String by project.rootProject
+        val signingKey: String = getRequiredEnv("SIGNING_KEY")
+        val signingPassword: String = getRequiredEnv("SIGNING_PASSWORD")
 
         @Suppress("UnstableApiUsage")
         useInMemoryPgpKeys(signingKey, signingPassword)
@@ -117,4 +117,9 @@ if (isRelease) {
             }
         }
     }
+}
+
+fun getRequiredEnv(key: String): String {
+    return System.getenv(key)
+        ?: throw RuntimeException("missing required environment variable [$key]")
 }
